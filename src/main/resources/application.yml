@@ -1,0 +1,35 @@
+server:
+  app:
+    auto: true
+spring:
+  profiles:
+    active:
+  application:
+    name: ms-drugstore-info
+
+#Spring boot actuator config for health check
+endpoints:
+  health:
+    sensitive: false
+    mapping:
+      DOWN: SERVICE_UNAVAILABLE
+
+# Health Config
+management:
+  health:
+    db.enabled: false
+    diskspace.enabled: false
+    hystrix.enabled: false
+    rabbit.enabled: false
+    redis.enabled: false
+    refresh.enabled: false
+  endpoints:
+    web:
+      base-path: /
+      exposure:
+        include: health
+
+services:
+  drugstore:
+    info:
+      path: ${gateway.host.minsal}/maps/index.php/ws/getLocalesRegion?id_region=

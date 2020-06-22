@@ -1,0 +1,26 @@
+server:
+  port: 8080
+
+#log config (only local)
+logging:
+  level:
+    java.net.*: ${log.level}
+    com.sun.*: ${log.level}
+    org.apache.http.*: ${log.level}
+    org.apache.http.impl.client: ${log.level}
+    org.springframework.security.web.*: ${log.level}
+    org.springframework.web: ${log.level}
+    org.springframework.web.client.RestTemplate: ${log.level}
+    org.springframework.cloud: ${log.level}
+    org.springframework.integration: ${log.level}
+    org.springframework.ws.client.MessageTracing.sent: ${log.level}
+    org.springframework.ws.client.MessageTracing.received: ${log.level}
+    root: ${log.level}
+    api.*: ${log.level}
+
+log:
+  level: INFO
+
+gateway:
+  host:
+    minsal: https://farmanet.minsal.cl
